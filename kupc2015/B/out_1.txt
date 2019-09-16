@@ -1,0 +1,10 @@
+CCCCC.C...
+CCCC.C....
+CCC.C.....
+CC.C.....C
+C.C.....C.
+.C.....C.C
+C.....C.CC
+.....C.CCC
+....C.CCCC
+...C.CCCCC
