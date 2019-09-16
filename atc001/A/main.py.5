@@ -1,0 +1,13 @@
+#!/usr/bin/env python3
+from collections import deque
+
+YES = "Yes"  # type: str
+NO = "No"  # type: str
+
+
+h,w = map(int,input().split())
+maze = [input() for i in range(h)]
+reached = [[False]*w for i in range(h)]
+
+def search(x:int, y:int):
+    
