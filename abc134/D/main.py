@@ -5,6 +5,24 @@ MOD = 2  # type: int
 
 
 def solve(N: int, a: "List[int]"):
+    # それぞれの箱のボールの数を数えておく
+    tf = [0] * N
+    # ボールの数をカウント
+    m = 0
+    # どの倍数のぼーるを入れることにしたか
+    x = []
+    for i in range(N-1, -1, -1):
+        # iの倍数の箱に入ったボールを求める
+        b = sum([tf[j] for j in range(i+(i+1), N, i+1)])
+        if(b%2 != a[i]):
+            m += 1
+            x.append(i+1)
+            tf[i] = (tf[i]+1)%2
+        
+    print(m)
+    if(x):
+        print(' '.join(map(str, x)))
+
     return
 
 
