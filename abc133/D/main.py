@@ -3,6 +3,16 @@ import sys
 
 
 def solve(N: int, A: "List[int]"):
+    X = [0] * N
+    S = sum(A)
+    # 初期
+    X[0] = S - sum([2*A[i] for i in range(1,N) if i%2 == 1])
+    # 漸化式
+    for i in range(1, N):
+        X[i] = 2*A[i-1] - X[i-1]
+
+    print(' '.join(map(str, X)))
+    
     return
 
 
