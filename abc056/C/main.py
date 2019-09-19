@@ -3,7 +3,12 @@ import sys
 
 
 def solve(X: int):
-    
+
+    for i in range(10000000):
+        a = i*(i+1)//2
+        if(a >= X):
+            print(i)
+            exit()
     return
 
 
@@ -14,6 +19,7 @@ def main():
             for word in line.split():
                 yield word
     tokens = iterate_tokens()
+    global X
     X = int(next(tokens))  # type: int
     solve(X)
 
