@@ -4,23 +4,20 @@ import sys
 
 def solve(N: int, K: int, a: "List[int]"):
 
-    aa = [0] *(N+1)
-    aa[1] = a[0]
-    for i in range(1,N+1):
-        aa[i] = aa[i-1]+a[i]
-    print(aa)
+    x = [0] * (N+1)
+    for i in range(N):
+        x[i+1] = x[i]+a[i]
+
+    from bisect import bisect_left, bisect_right
+
     ans = 0
-    for i in range(1,N+1):
-        t = []
-        for j in range(0,N,1):
-            # print(i, j, a[j:j+i])
-            if(i+j <= N):
-                # print(i, j, a[j:j+i])
-                # t.append(sum(a[j:j+i]))
-                t.append(aa[j+i+1]-aa[j])
-        ans += len([k for k in t if(k >= K)])
+    idx = bisect_left(x, K)
+    for i in range(idx, N+1):
+        ans += bisect_right(x, x[i]-K)
+        
 
     print(ans)
+
     return
 
 
