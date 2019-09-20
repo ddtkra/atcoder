@@ -3,31 +3,24 @@ import sys
 
 
 def solve(N: int, M: int, A: "List[int]", B: "List[int]", C: "List[int]"):
-    # A.sort()
-    # print(A)
-    # from bisect import bisect_left
-    # for j in range(M):
-    #     idx = bisect_left(A, C[j])
-    #     if(idx != 0):
-    #         t = min(B[j],idx)
-    #         for i in range(min(B[j],idx)):
-    #             A[i] = C[j]
-    #         A = A[t:idx] + A[:t] + A[idx:]
-    #     # print(A)
-    # print(sum(A))
+    x = [[B[i],C[i]] for i in range(M)]
+    x = sorted(x, key=lambda x: -x[1])
+
     A.sort()
 
-    d = zip(B,C)
-    dk = sorted(d,reverse=True)
-    B,C = zip(*dk) 
+    dn = 0
+    for b, c in x:
+        for j in range(b):
+            if(dn >= N):
+                break
+            if(A[dn] < c):
+                A[dn] = c
+                dn += 1
+            else:
+                break
 
-    for i in range(M):
-        for j in range(B[i]):
-            A[i+j] = C
-            i += 1
-    
-    sum(A)
 
+    print(sum(A))
 
     return
 
