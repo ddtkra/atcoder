@@ -4,6 +4,19 @@ import sys
 MOD = 1000000007  # type: int
 
 def solve(N: int, A: "List[int]"):
+    from collections import Counter
+    c = Counter(A)
+
+    for k,v in c.items():
+        if(v == 2 or (k == 0 and v == 1)):
+            pass
+        else:
+            print(0)
+            exit()
+        
+    print((2 ** (N//2))%MOD)
+
+
     return
 
 
