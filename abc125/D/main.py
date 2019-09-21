@@ -3,20 +3,10 @@ import sys
 
 
 def solve(N: int, A: "List[int]"):
-    for i in range(N-1):
-        if(A[i] < 0 and A[i+1] < 0):
-            A[i] = -1*A[i]
-            A[i+1] = -1*A[i+1]
-        elif(A[i] < 0 and A[i+1] >= 0):
-            if(abs(A[i]) < abs(A[i+1])):
-                A[i] = -1*A[i]
-                A[i+1] = -1*A[i+1]
-        elif(A[i] >= 0 and A[i+1] < 0):
-            if(abs(A[i]) > abs(A[i+1])):
-                A[i] = -1*A[i]
-                A[i+1] = -1*A[i+1]
-
-    print(sum(A))
+    if(len([i for i in A if i <= 0])%2):
+        print(sum(map(abs,A))-2*min(map(abs,A)))
+    else:
+        print(sum(map(abs,A)))
 
     return
 
