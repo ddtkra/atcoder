@@ -1,16 +1,15 @@
 #!/usr/bin/env python3
 import sys
-from math import factorial
 
-def comb(n: int, r: int):
-    return factorial(n) // (factorial(r)*factorial(n-r))
+YES = "Yes"  # type: str
+NO = "No"  # type: str
 
-def solve(n: int, a: "List[int]"):
-    a.sort()
 
-    m = a[-1]
-    print(m, min(a, key=lambda x:abs(m/2-x)))
-    
+def solve(A: int, B: int, C: int):
+    if(A <= C <= B or A >= C >= B):
+        print(YES)
+    else:
+        print(NO)
     return
 
 
@@ -21,9 +20,10 @@ def main():
             for word in line.split():
                 yield word
     tokens = iterate_tokens()
-    n = int(next(tokens))  # type: int
-    a = [int(next(tokens)) for _ in range(n)]  # type: "List[int]"
-    solve(n, a)
+    A = int(next(tokens))  # type: int
+    B = int(next(tokens))  # type: int
+    C = int(next(tokens))  # type: int
+    solve(A, B, C)
 
 if __name__ == '__main__':
     main()
