@@ -1,43 +1,58 @@
 #!/usr/bin/env python3
 import sys
+import re
 
 
 def solve(H: int, W: int, S: "List[str]"):
-    from collections import deque
 
-    q = deque()
+    
+    L = [[0] * W for i in range(H)]
+    R = [[0] * W for i in range(H)]
+    U = [[0] * W for i in range(H)]
+    D = [[0] * W for i in range(H)]
+    
+    for i in range(H):
+        for j in range(W):
+            # 左
+            if(S[i][j] =='#'):
+                L[i][j] = 0
+            elif(j == 0):
+                L[i][j] = 1
+            elif(j >= 1):
+                L[i][j] = L[i][j-1] + 1
+
+            # 上
+            if(S[i][j] =='#'):
+                U[i][j] = 0
+            elif(i == 0):
+                U[i][j] = 1
+            else:
+                U[i][j] = U[i-1][j] + 1
+
+
+    for i in range(H-1,-1,-1):
+        for j in range(W-1,-1,-1):
+            # 右
+            if(S[i][j] =='#'):
+                R[i][j] = 0
+            elif(j == W-1):
+                R[i][j] = 1
+            else:
+                R[i][j] = R[i][j+1] + 1
+
+            # 下
+            if(S[i][j] =='#'):
+                D[i][j] = 0
+            elif(i == H-1):
+                D[i][j] = 1
+            else:
+                D[i][j] = D[i+1][j] + 1
+    
+
     ans = 0
-    for x in range(H):
-        for y in range(W):
-            if(S[x][y] == '.'):
-
-                t = 1
-                
-                # 上
-                s = 1
-                while(0 <= x-s < H and 0 <= y < W and S[x-s][y] == '.'):
-                    t += 1
-                    s += 1
-
-                # 下
-                s = 1
-                while(0 <= x+s < H and 0 <= y < W and S[x+s][y] == '.'):
-                    t += 1
-                    s += 1
-
-                # 左
-                s = 1
-                while(0 <= x < H and 0 <= y-s < W and S[x][y-s] == '.'):
-                    t += 1
-                    s += 1
-
-                # 右
-                s = 1
-                while(0 <= x < H and 0 <= y+s < W and S[x][y+s] == '.'):
-                    t += 1
-                    s += 1
-
-                ans = max(ans, t)
+    for i in range(H):
+        for j in range(W):
+            ans = max(ans, L[i][j] + R[i][j] + U[i][j] + D[i][j] - 3)
 
     print(ans)
 
