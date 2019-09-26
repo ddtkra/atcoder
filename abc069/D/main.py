@@ -3,6 +3,24 @@ import sys
 
 
 def solve(H: int, W: int, N: int, a: "List[int]"):
+    
+    al = [[i]*a[i-1] for i in range(1,N+1)]
+
+    import itertools
+    al = list(itertools.chain.from_iterable(al))
+
+    c = []
+    for i in range(H):
+        t = al[i*W:(i+1)*W]
+        if(i%2 == 0):
+            c.append(t)
+        else:
+            c.append(t[::-1])
+
+    for i in c:
+        print(' '.join(map(str,i)))
+    # print(c)
+
     return
 
 
