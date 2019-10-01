@@ -3,6 +3,22 @@ import sys
 
 
 def solve(N: int, H: int, a: "List[int]", b: "List[int]"):
+    a.sort(reverse=True)
+    b = sorted([i for i in b if i > a[0]], key=lambda x:x, reverse=True)
+
+    ans = 0
+    s = 0
+    while(s < H):
+        if(len(b) == 0):
+            from math import ceil
+            print(ans + ceil((H-s)/a[0]))
+            exit()
+        
+        s += b.pop(0)
+        ans += 1
+
+    print(ans)
+
     return
 
 
