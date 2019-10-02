@@ -2,7 +2,16 @@
 import sys
 
 # from math import gcd
-from fractions import gcd
+# from fractions import gcd
+
+def gcd(a: int, b: int):
+    while b:
+        a, b = b, a%b
+    return a
+
+def lcm(a: int, b:int):
+    return a*b // gcd(a,b)
+
 
 def isprime(x :int):
     if(x == 1):

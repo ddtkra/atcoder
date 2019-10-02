@@ -3,6 +3,32 @@ import sys
 
 
 def solve(H: int, W: int, c: "List[List[int]]", A: "List[List[int]]"):
+
+    '''
+    Warshall-Floyd
+    input:  c[|V|][|V|]
+            input example to from cost
+            (c[i][i] == 0)
+    Output: Minimun cost of all paths in the inputed graph 
+    '''
+    V = 10
+    INF = 1<<32
+    
+    for k in range(10):
+        for i in range(10):
+            if c[i][k] == INF : continue
+            for j in range(10):
+                if c[k][j] == INF: continue
+                c[i][j] = min(c[i][j], c[i][k]+c[k][j])
+
+
+    ans = 0
+    for i in range(H):
+        for j in range(W):
+            if(A[i][j] != -1):
+                ans += c[A[i][j]][1]
+    
+    print(ans)
     return
 
 
