@@ -1,8 +1,40 @@
 #!/usr/bin/env python3
 import sys
-
+from itertools import permutations
 
 def solve(N: int, M: int, R: int, r: "List[int]", A: "List[int]", B: "List[int]", C: "List[int]"):
+
+    '''
+    Warshall-Floyd
+    input:  c[|V|][|V|]
+            input example to from cost
+            (c[i][i] == 0)
+    Output: Minimun cost of all paths in the inputed graph 
+    '''
+    V = N
+    INF = 1<<32
+    d = [[INF] * (N+1) for i in range(N+1)]
+
+    for i in range(M):
+        d[A[i]][B[i]] = C[i]
+        d[B[i]][A[i]] = C[i]
+
+    for k in range(1,N+1):
+        for i in range(1,N+1):
+            for j in range(1,N+1):
+                d[i][j] = min(d[i][j], d[i][k]+d[k][j])
+
+
+    ans = INF
+    
+    for i in permutations(r):
+        ta = 0
+        for x in range(R-1):
+            ta += d[i[x]][i[x+1]]
+        
+        ans = min(ans, ta)
+    print(ans)
+
     return
 
 
