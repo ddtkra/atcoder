@@ -3,6 +3,16 @@ import sys
 
 
 def solve(N: int, A: "List[int]"):
+    from collections import Counter
+    c = Counter(A)
+    
+    m = sum([v for v in c.values()])
+    cl = len([c for c in c.keys()])
+
+    while(m > cl):
+        m -= 2
+    
+    print(m)
     return
 
 
