@@ -3,6 +3,28 @@ import sys
 
 
 def solve(N: int, S: str):
+    from collections import deque
+    d = deque(list(S))
+    st = 0
+    ad = deque()
+
+    while(len(d)):
+        t = d.pop()
+        if t == ')':
+            ad.appendleft(t)
+            st += 1
+        else:
+            if(st > 0):
+                st -= 1
+            else:
+                ad.append(')')
+
+            ad.appendleft('(')
+                    
+    ad.appendleft('(' * st)
+        
+    print(''.join(ad))
+
     return
 
 
