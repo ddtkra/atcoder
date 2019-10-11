@@ -1,8 +1,27 @@
 #!/usr/bin/env python3
 import sys
-
+INF = 1<<32
 
 def solve(N: int, W: int, w: "List[int]", v: "List[int]"):
+    dp = [[INF] * (max(v)*N+1) for i in range(N+1)]
+    dp[0][0] = 0
+
+    for i in range(N):
+        for sumv in range(max(v)*N+1):
+            if(sumv - v[i-1] >= 0):
+                dp[i+1][sumv] = min(dp[i][sumv], dp[i][sumv-v[i-1]] + w[i-1])
+            else:
+                dp[i+1][sumv] = dp[i][sumv]
+
+    ans = 0
+    for i in range(max(v)*N+1):
+        if(dp[N][i] <= W): ans = i
+
+    # for i in dp:
+    #     print(i)
+
+    print(ans)
+
     return
 
 
