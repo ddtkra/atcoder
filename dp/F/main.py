@@ -3,6 +3,31 @@ import sys
 
 
 def solve(s: str, t: str):
+    N = len(s)
+    W = len(t)
+    dp = [[0] * (W+1) for i in range(N+1)]
+
+    for i in range(N):
+        for j in range(W):
+            if(s[i] == t[j]):
+                dp[i+1][j+1] = dp[i][j] + 1
+            else:
+                dp[i+1][j+1] = max(dp[i][j+1], dp[i+1][j]) 
+
+    ans = []
+    while N > 0 and W > 0:
+        if(dp[N][W] == dp[N-1][W]):
+            N -= 1
+        elif(dp[N][W] == dp[N][W-1]):
+            W -= 1
+        elif(dp[N][W] == dp[N-1][W-1]+1):
+            ans = [s[N-1]] + ans
+            N -= 1
+            W -= 1
+
+
+    print(''.join(ans))
+
     return
 
 
