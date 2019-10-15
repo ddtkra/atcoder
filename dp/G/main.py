@@ -1,8 +1,34 @@
 #!/usr/bin/env python3
 import sys
+sys.setrecursionlimit(10**6)
 
 
 def solve(N: int, M: int, x: "List[int]", y: "List[int]"):
+    dp = [-1]*(N+1)
+    # G = [[0] * (N+1) for i in range(N+1)]
+    G = [[] for i in range(N+1)]
+    for i in range(M):
+        G[x[i]].append(y[i])
+
+
+    def rec(v : int):
+        if dp[v] != -1:
+            return dp[v]
+        
+        t = 0
+        for i in G[v]:
+            t = max(t, rec(i)+1)
+        dp[v] = t
+
+        return dp[v]
+
+    res = 0
+    for i in range(1,N+1):
+        res = max(res, rec(i))
+    print(res)
+
+
+
     return
 
 
