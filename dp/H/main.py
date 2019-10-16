@@ -3,7 +3,20 @@ import sys
 
 MOD = 1000000007  # type: int
 
-def solve(H: int, W: int, a: "List[List[str]]"):
+def solve(H: int, W: int, a: "[List[str]"):
+    dp = [[0] * (W+1) for i in range(H+1)]
+
+    dp[0][0] = 1
+    for i in range(H):
+        for j in range(W):
+            
+            if 0 <= i < H and 0 <= j+1 < W and a[i][j+1] == '.':
+                dp[i][j+1] = (dp[i][j+1] + dp[i][j]) % MOD
+            if 0 <= i+1 < H and 0 <= j < W and a[i+1][j] == '.':
+                dp[i+1][j] = (dp[i+1][j] + dp[i][j]) % MOD
+
+
+    print(dp[H-1][W-1])
     return
 
 
@@ -16,7 +29,7 @@ def main():
     tokens = iterate_tokens()
     H = int(next(tokens))  # type: int
     W = int(next(tokens))  # type: int
-    a = [ [ next(tokens) for _ in range(1) ] for _ in range(H) ]  # type: "List[List[str]]"
+    a = [ next(tokens) for _ in range(H) ]  # type: "List[List[str]]"
     solve(H, W, a)
 
 if __name__ == '__main__':
