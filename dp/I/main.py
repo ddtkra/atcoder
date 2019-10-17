@@ -1,8 +1,20 @@
 #!/usr/bin/env python3
 import sys
-
+from math import ceil
 
 def solve(N: int, p: "List[float]"):
+
+    dp = [[0.0] * (N+1) for i in range(N+1)]
+
+    dp[0][0] = 1
+    for i in range(N):
+         for j in range(N):
+             dp[i+1][j] += dp[i][j] * (1-p[i])
+             dp[i+1][j+1] += dp[i][j] * p[i]
+
+    print(sum(dp[N][ceil(N/2):]))
+
+
     return
 
 
