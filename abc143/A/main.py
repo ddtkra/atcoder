@@ -3,7 +3,6 @@ import sys
 
 
 def solve(A: int, B: int):
-    print(max(0,A-2*B))
     return
 
 

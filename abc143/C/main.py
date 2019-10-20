@@ -3,22 +3,6 @@ import sys
 
 
 def solve(N: int, S: str):
-
-    ans = []
-    n = S[0]
-    c = 1
-    for i in range(1,N):
-        if(S[i] == n):
-            c += 1
-        else:
-            ans.append(n)
-            n = S[i]
-            c = 1
-    ans.append(n)
-
-    print(len(ans))
-    # print(ans)
-
     return
 
 

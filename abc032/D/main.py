@@ -1,8 +1,47 @@
 #!/usr/bin/env python3
 import sys
-
+INF = 1<<32
 
 def solve(N: int, W: int, v: "List[int]", w: "List[int]"):
+    vw = 1000*N
+
+    if(max(w) > 1000 and N > 30):
+        dp = [[INF] * (vw+1) for i in range(N+1)]
+
+        dp[0][0] = 0
+        for i in range(1,N+1):
+            for j in range(vw+1):
+                dp[i][j] = dp[i-1][j]
+                if(j-v[i-1] >= 0):
+                    dp[i][j] = min(dp[i][j], dp[i-1][j-v[i-1]]+w[i-1])
+
+        print(max([i for i,x in enumerate(dp[N]) if x <= W]))
+
+    elif(max(v) > 1000 and N > 30):
+        dp = [[0] * (vw+1) for i in range(N+1)]
+
+        for i in range(1,N+1):
+            for j in range(vw+1):
+                dp[i][j] = dp[i-1][j]
+                if(j-w[i-1] >= 0):
+                    dp[i][j] = max(dp[i][j], dp[i-1][j-w[i-1]]+v[i-1])
+                
+        print(dp[N][W])
+
+    else:
+        dp = dict()
+        dp[0] = 0
+        for v, w in zip(v, w):
+            ndp = dict()
+            for i in dp:
+                if i+w <= W:
+                    ndp[i+w] = max(dp.get(i+w,0),dp[i]+v)
+                ndp[i] = max(dp[i], ndp.get(i,0))
+
+            dp = ndp
+
+        print(max(dp.values()))
+
     return
 
 
