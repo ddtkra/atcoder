@@ -2,7 +2,7 @@
 import sys
 
 
-def solve(N: int, M_a: int, M_b: int, a: "List[int]", b: "List[int]", c: "List[int]"):
+def solve(N: int, M_a: int, M_b: int, a: "List[int]", b: "List[int]", c: "List[int]"):    
     return
 
 

@@ -1,5 +1,10 @@
 {
  "code_filename": "main.py",
+ "judge": {
+  "diff": 1e-09,
+  "error_type": "absolute",
+  "judge_type": "decimal"
+ },
  "lang": "python",
  "problem": {
   "alphabet": "I",

@@ -179,3 +179,4 @@ dmypy.json
 # in*.txt
 # out*.txt
 # metadata.json
+aridp/*

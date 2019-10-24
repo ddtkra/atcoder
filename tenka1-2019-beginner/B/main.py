@@ -3,6 +3,14 @@ import sys
 
 
 def solve(N: int, S: str, K: int):
+    S = list(S)
+    t = S[K-1]
+    for i in range(len(S)):
+        if(S[i] != t):
+            S[i] = '*'
+        
+    print(''.join(S))
+
     return
 
 

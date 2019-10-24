@@ -1,5 +1,8 @@
 {
  "code_filename": "main.py",
+ "judge": {
+  "judge_type": "normal"
+ },
  "lang": "python",
  "problem": {
   "alphabet": "Z",

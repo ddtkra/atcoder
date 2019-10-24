@@ -3,6 +3,7 @@ import sys
 
 
 def solve(N: int, A: int, B: int):
+    print(min(A,B),max(0,A+B-N))
     return
 
 
