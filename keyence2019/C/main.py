@@ -3,6 +3,29 @@ import sys
 
 
 def solve(N: int, A: "List[int]", B: "List[int]"):
+
+    s = [0] * N
+    for i in range(N):
+        s[i] = A[i]-B[i]
+
+    s.sort()
+    minus = sum([i for i in s if i < 0])
+    minus_len = len([i for i in s if i < 0])
+    plus =  sum([i for i in s if i >= 0])
+
+    if(minus+plus < 0):
+        print(-1)
+        exit()
+
+    s.sort(reverse=True)
+
+    ans = 0
+    while minus < 0:
+        minus += s[ans]
+        ans += 1
+
+    print(ans + minus_len)
+
     return
 
 
