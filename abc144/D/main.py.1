@@ -1,0 +1,38 @@
+#!/usr/bin/env python3
+import sys
+import math
+sys.setrecursionlimit(10000)
+INF = 1<<32
+
+
+def solve(a: int, b: int, x: int):
+    y = float(x)/float(a)
+    ans = .0
+    if (a**2 * b - x) == 0:
+        ans = 0.0
+    elif y >= a*b/2:
+        bd = 2.0*(a*b-y)/a
+        ans = 90.0-math.degrees(math.atan(a/bd))
+    else:
+        ad = 2.0*y/b
+        ans = 90.0-math.degrees(math.atan(ad/b))
+
+    print(ans)
+
+    return
+
+
+
+def main():
+    def iterate_tokens():
+        for line in sys.stdin:
+            for word in line.split():
+                yield word
+    tokens = iterate_tokens()
+    a = int(next(tokens))  # type: int
+    b = int(next(tokens))  # type: int
+    x = int(next(tokens))  # type: int
+    solve(a, b, x)
+
+if __name__ == '__main__':
+    main()
