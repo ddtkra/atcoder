@@ -3,6 +3,7 @@ import sys
 
 
 def solve(x_a: int, y_a: int, x_b: int, y_b: int, x_c: int, y_c: int):
+    print(abs((x_b-x_a)*(y_c-y_a)-(y_b-y_a)*(x_c-x_a))/2)
     return
 
 
