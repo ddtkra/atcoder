@@ -1,8 +1,33 @@
 #!/usr/bin/env python3
 import sys
-
+from math import ceil
 
 def solve(N: int, A: int, B: int, h: "List[int]"):
+    INF = 10000000000
+    
+    def f(K: int):
+        c = 0
+        for i in range(N):
+            c += ceil(max(0, h[i] - B*K)/(A-B))
+
+        if c <= K:
+            return True
+        else:
+            return False
+
+    def b(ok: int, ng: int):
+        
+        while ok-ng > 1:
+            mid = (ok+ng)//2
+            if f(mid):
+                ok = mid
+            else:
+                ng = mid
+
+        return ok
+
+    print(b(INF, 0))
+
     return
 
 
