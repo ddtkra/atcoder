@@ -3,6 +3,16 @@ import sys
 
 
 def solve(N: int, K: int, a: "List[int]"):
+    r = [0] * (N+5)
+    for i in range(N):
+        r[i+1] = r[i] + a[i]
+
+
+    ans = 0
+    for i in range(1, N-K+2):
+        ans += r[i+K-1] - r[i-1]
+
+    print(ans)
     return
 
 
