@@ -3,6 +3,12 @@ import sys
 
 
 def solve(N: int, a: "List[int]"):
+    c = round(sum(a)/N)
+    ans = 0
+    for i in range(N):
+        ans += (c-a[i])**2
+
+    print(ans)
     return
 
 
