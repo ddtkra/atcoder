@@ -4,6 +4,12 @@ import sys
 MOD = 5  # type: int
 
 def solve(N: int):
+    N %= 30
+    x = [1,2,3,4,5,6]
+    for i in range(N):
+        x[i%5], x[i%5+1] = x[i%5+1], x[i%5]
+
+    print(''.join(map(str,x)))
     return
 
 
