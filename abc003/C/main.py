@@ -3,6 +3,13 @@ import sys
 
 
 def solve(N: int, K: int, R: "List[int]"):
+    R.sort()
+    ans = 0
+    for i in range(-min(K,N), 0, 1):
+        ans += R[i]
+        ans /= 2
+    print(ans)
+    
     return
 
 
