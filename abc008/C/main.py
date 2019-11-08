@@ -3,6 +3,8 @@ import sys
 
 
 def solve(N: int, C: "List[int]"):
+    
+    for 
     return
 
 

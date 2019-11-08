@@ -3,6 +3,24 @@ import sys
 
 
 def solve(N: int, M: int):
+
+    if M-2*N < 0 or M-2*N > 2*N:
+        print('-1 -1 -1')
+        exit()
+
+    x,y,z = 0,0,0
+    d = M-N*2
+    x = N
+    z = d//2
+    x -= d//2
+    d = d%2
+    if d == 1:
+        x -= 1
+        y += 1
+
+    print(x, y, z)
+
+
     return
 
 
