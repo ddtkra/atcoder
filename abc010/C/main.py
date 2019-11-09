@@ -1,10 +1,22 @@
 #!/usr/bin/env python3
 import sys
+from math import sqrt
 
 YES = "YES"  # type: str
 NO = "NO"  # type: str
 
+
 def solve(tx_a: int, ty_a: int, tx_b: int, ty_b: int, T: int, V: int, n: int, x: "List[int]", y: "List[int]"):
+
+    def dis(x1, x2, y1, y2):
+        return sqrt((x2-x1)**2 + (y2-y1)**2)
+
+    if any([V*T >= dis(tx_a, x[i], ty_a, y[i]) + dis(tx_b, x[i], ty_b, y[i]) for i in range(n)]):
+        print(YES)
+    else:
+        print(NO)
+
+
     return
 
 
