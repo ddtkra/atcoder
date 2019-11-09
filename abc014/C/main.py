@@ -1,8 +1,20 @@
 #!/usr/bin/env python3
 import sys
-
+import numpy as np
 
 def solve(n: int, a: "List[int]", b: "List[int]"):
+    l = [0] * (10**6+2)
+
+    for i in range(n):
+        l[a[i]] += 1
+        l[b[i]+1] -= 1
+    
+    x = [0] * (10**6+3)
+    for i in range(10**6+2):
+        x[i+1] += x[i] + l[i]
+
+    print(max(x))
+
     return
 
 
