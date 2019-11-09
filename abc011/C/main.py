@@ -5,6 +5,29 @@ YES = "YES"  # type: str
 NO = "NO"  # type: str
 
 def solve(N: int, NG: "List[int]"):
+    ng1, ng2, ng3 = sorted(NG)
+    if (N > ng1 and ng2-ng1 == 1 and ng3-ng2 == 1) or (N in NG):
+        print(NO)
+        exit()
+
+    c = 100
+    while N > 0 and c > 0:
+        if N-3 not in NG and N-3 >= 0:
+            N -= 3
+        elif N-2 not in NG and N-2 >= 0:
+            N -= 2
+        elif N-1 not in NG and N-1 >= 0:
+            N -= 1
+        else:
+            print(NO)
+            exit()
+        c -= 1
+
+    if N == 0:
+        print(YES)
+    else:
+        print(NO)
+
     return
 
 
