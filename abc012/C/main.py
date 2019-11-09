@@ -3,6 +3,27 @@ import sys
 
 
 def solve(N: int):
+    def divisors(n):
+        divisors = []
+        for i in range(1, int(n**0.5)+1):
+            if n % i == 0:
+                divisors.append(i)
+                if i != n // i:
+                    divisors.append(n//i)
+        return divisors
+
+    n = 2025-N
+    ans = []
+    d = divisors(n)
+    for i in d:
+        if n//i < 10 and i < 10:
+            ans.append(str(i)+' x '+str(n//i))
+
+    ans.sort()
+
+    for i in ans:
+        print(i)
+
     return
 
 
