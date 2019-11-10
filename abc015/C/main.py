@@ -1,8 +1,29 @@
 #!/usr/bin/env python3
 import sys
+sys.setrecursionlimit(10000000)
+INF = 1<<32
 
 
 def solve(N: int, K: int, T: "List[List[int]]"):
+
+    def rec(x: int, v:int):
+        if x == N:
+            return v == 0
+
+        for i in range(K):
+            if rec(x+1, v ^ T[x][i]):
+                return True
+        
+        return False
+
+    
+    if rec(0,0):
+        print('Found')
+    else:
+        print('Nothing')
+
+
+
     return
 
 
