@@ -1,8 +1,35 @@
 #!/usr/bin/env python3
 import sys
-
+sys.setrecursionlimit(10000000)
+INF = 1<<32
 
 def solve(N: int, M: int, A: "List[int]", B: "List[int]"):
+
+    g = [[0] * (N+1) for i in range(N+1)]
+
+    for i in range(M):
+        g[A[i]][B[i]] = 1
+        g[B[i]][A[i]] = 1
+
+    ans = list()
+    for i in range(1,N+1):
+        ad = list()
+        adad = list()
+        for j in range(N+1):
+            if g[i][j] == 1:
+                ad.append(j)
+
+        for j in ad:
+            for k in range(N+1):
+                if g[j][k] == 1:
+                    adad.append(k)
+        # print(set(adad)-set(ad)-{i})
+        ans.append(len(set(adad)-set(ad)-{i}))
+        
+
+    for i in ans:
+        print(i)
+
     return
 
 
