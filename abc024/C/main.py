@@ -3,6 +3,25 @@ import sys
 
 
 def solve(N: int, D: int, K: int, L: "List[int]", R: "List[int]", S: "List[int]", T: "List[int]"):
+    
+    ans = [] 
+
+    for i in range(K):
+        p = S[i]
+        for j in range(D):
+            if L[j] <= p <= R[j]:
+                if p < T[i]:
+                    p = min(T[i], R[j])
+                elif p > T[i]:
+                    p = max(T[i], L[j])
+                
+            if p == T[i]:
+                ans.append(j+1)
+                break
+
+    for i in ans:
+        print(i)
+
     return
 
 
