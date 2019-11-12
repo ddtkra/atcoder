@@ -3,6 +3,19 @@ import sys
 
 
 def solve(N: int, B: "List[int]"):
+    B = [0] * 2 + B
+    s = [1] * (N+1)
+
+    for i in range(N,0,-1):
+        if B[i:N+1].count(i) == 0:
+            s[i] = 1
+        else:
+            l = [s[i+j] for j,x in enumerate(B[i:N+1]) if x == i]    
+            s[i] = max(l) + min(l) + 1
+
+    print(s[1])
+    # print(s)
+
     return
 
 
