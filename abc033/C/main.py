@@ -6,10 +6,16 @@ INF = 1<<32
 from re import findall
 
 def solve(S: str):
-    if S.count('*') == S.count('+')-1:
-        print(S.count('*')-cd )
-    else:
-        print(S.count('+')-S.count('+0+')+S.count('*'))
+
+    l = S.split('+')
+    ans = 0
+    for i in l:
+        il = i.split('*')
+        if '0' not in il:
+            ans += 1
+    
+    print(ans)
+    
     return
 
 
