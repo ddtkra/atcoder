@@ -3,6 +3,30 @@ import sys
 
 
 def solve(N: int, M: int, X: int, Y: int, a: "List[int]", b: "List[int]"):
+    i = 0
+    t = a[0]+X
+    n = 'A'
+    c = 0
+    ab = sorted([['A', i] for i in a]+[['B', i] for i in b], key=lambda x:x[1])
+
+    while i < len(ab):
+        
+        if n != ab[i][0] and t <= ab[i][1]:
+            
+            if n == 'A':
+                n = 'B'
+                t = ab[i][1] + Y
+                c += 1
+            else:
+                n = 'A'
+                t = ab[i][1] + X
+
+        # print(ab[i], t, c)
+        i += 1
+        
+
+    print(c)
+
     return
 
 
