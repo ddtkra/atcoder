@@ -3,6 +3,21 @@ import sys
 
 
 def solve(N: int, a: "List[int]"):
+    # from collections import defaultdict
+    d = {}
+    
+    x = sorted(a)
+    idx = 0
+    
+    for y in x:
+        if y not in d:
+            d[y] = idx
+            idx += 1
+
+    for i in[d[i] for i in a]:
+        print(i)
+
+
     return
 
 
