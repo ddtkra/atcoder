@@ -5,6 +5,9 @@ INF = 1<<32
 
 
 def solve(N: int, A: "List[int]", B: "List[int]"):
+    ab = [[A[i],B[i]] for i in range(N)]
+    x = sorted(ab, key=lambda x:-x[0])
+    print(x[0][0]+x[0][1])
     return
 
 
