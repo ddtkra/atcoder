@@ -6,6 +6,14 @@ NO = "NO"  # type: str
 
 
 def solve(a: "List[int]", b: "List[int]"):
+    ab = a+b
+    t1 = [ab.count(1), ab.count(2), ab.count(3), ab.count(4)]
+    
+    if t1.count(1) == t1.count(2):
+        print(YES)
+    else:
+        print(NO)
+
     return
 
 
