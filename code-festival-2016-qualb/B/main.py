@@ -7,6 +7,34 @@ YES = "Yes"  # type: str
 NO = "No"  # type: str
 
 def solve(N: int, A: int, B: int, S: str):
+
+    b = [1 if S[i]=='b' else 0 for i in range(N)]
+    lb = [0] * (N+1)
+    for i in range(N):
+        lb[i+1] = lb[i] + b[i]
+
+
+    cnt = 0
+    for i in range(N):
+        if S[i] == 'c':
+            print(NO)
+        
+        elif cnt < A+B:
+            if S[i] == 'a':
+                print(YES)
+                cnt += 1
+        
+            elif S[i] == 'b' and lb[i] < B:
+                print(YES)
+                cnt += 1
+        
+            else:
+                print(NO)
+
+        else:
+            print(NO)
+        
+
     return
 
 
