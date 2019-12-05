@@ -3,8 +3,9 @@ import sys
 sys.setrecursionlimit(10000000)
 INF = 1<<32
 
+MOD = 1000000007  # type: int
 
-def solve(a: int, b: int):
+def solve(N: int, K: int):
     return
 
 
@@ -15,9 +16,9 @@ def main():
             for word in line.split():
                 yield word
     tokens = iterate_tokens()
-    a = int(next(tokens))  # type: int
-    b = int(next(tokens))  # type: int
-    solve(a, b)
+    N = int(next(tokens))  # type: int
+    K = int(next(tokens))  # type: int
+    solve(N, K)
 
 if __name__ == '__main__':
     main()

@@ -4,7 +4,7 @@ sys.setrecursionlimit(10000000)
 INF = 1<<32
 
 
-def solve(a: int, b: int):
+def solve(N: int, a: "List[int]"):
     return
 
 
@@ -15,9 +15,9 @@ def main():
             for word in line.split():
                 yield word
     tokens = iterate_tokens()
-    a = int(next(tokens))  # type: int
-    b = int(next(tokens))  # type: int
-    solve(a, b)
+    N = int(next(tokens))  # type: int
+    a = [int(next(tokens)) for _ in range(N)]  # type: "List[int]"
+    solve(N, a)
 
 if __name__ == '__main__':
     main()
