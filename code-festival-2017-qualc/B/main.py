@@ -5,6 +5,15 @@ INF = 1<<32
 
 
 def solve(N: int, A: "List[int]"):
+    ans = 1
+    t = 1
+    for i in range(N):
+        t *= 3
+        if A[i]%2 == 0:
+            ans *= 2
+        
+    print(t-ans)
+
     return
 
 
