@@ -2,9 +2,18 @@
 import sys
 sys.setrecursionlimit(10000000)
 INF = 1<<32
-
+from bisect import bisect_left, bisect_right
 
 def solve(N: int, a: "List[int]"):
+    
+    ans = 0
+    for i in range(N):
+        if a[a[i]-1] == i+1:
+            ans += 1
+
+    print(ans//2)
+
+
     return
 
 
