@@ -6,6 +6,14 @@ NO = "NO"  # type: str
 
 
 def solve(S: str):
+
+    N = len(S)
+    if any([(S[0:i]+S[i+N-7:N]) == 'keyence' for i in range(N)]):
+        print(YES)
+    else:
+        print(NO)
+
+
     return
 
 
