@@ -7,6 +7,28 @@ YES = "YES"  # type: str
 NO = "NO"  # type: str
 
 def solve(N: int, D: "List[int]", M: int, T: "List[int]"):
+    
+    D.sort()
+    T.sort()
+
+    from bisect import bisect_left, bisect_right
+
+    if M > N:
+        print(NO)
+        exit()
+
+
+    for i in range(M):
+        lf = bisect_left(D, T[i])
+        ri = bisect_right(D, T[i])
+        if lf != ri:
+            D[lf] = 0
+        else:
+            print(NO)
+            exit()
+
+    print(YES)
+
     return
 
 
