@@ -7,6 +7,14 @@ YES = "YES"  # type: str
 NO = "NO"  # type: str
 
 def solve(S: str):
+    # print(''.join(S.split('A')))
+    if ''.join(S.split('A')) == "KIHBR":
+        if 'AA' not in S and 'KIH' in S:
+            print(YES)
+            exit()
+    
+    print(NO)
+
     return
 
 
