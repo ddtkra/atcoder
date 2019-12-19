@@ -3,6 +3,11 @@ import sys
 
 
 def solve(K: int, A: int, B: int):
+    if B-A < 2:
+        print(K+1)
+    else:
+        ans = (B-A)*max(0, (K-(A-1))//2) + (K-(A-1))%2 + A
+        print(ans)
     return
 
 
