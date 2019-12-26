@@ -5,6 +5,24 @@ INF = 1<<32
 
 
 def solve(N: int):
+    c = 0
+    i = 1
+    ans = []
+    while c <= N:
+        c += i
+        ans.append(i)
+        i += 1
+    
+    t = c-N
+
+    if c == N:
+        print(ans)
+
+    else:
+        for i in ans:
+            if i != t:
+                print(i)
+
     return
 
 
