@@ -5,8 +5,6 @@ INF = 1<<32
 
 
 def solve(A: int, B: int):
-    x = {1,2,3}-{A,B}
-    print(x.pop())
     return
 
 

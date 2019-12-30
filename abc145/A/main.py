@@ -5,7 +5,6 @@ INF = 1<<32
 
 
 def solve(r: int):
-    print(r**2)
     return
 
 

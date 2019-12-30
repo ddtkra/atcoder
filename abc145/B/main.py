@@ -3,16 +3,16 @@ import sys
 sys.setrecursionlimit(10000000)
 INF = 1<<32
 
+
 YES = "Yes"  # type: str
 NO = "No"  # type: str
 
 def solve(N: int, S: str):
-    if N%2 == 0:
-        if S[:N//2] == S[N//2:]:
-            print(YES)
-            exit()
-        
-    print(NO)
+    if S[:N//2] == S[N//2:]:
+        print(YES)
+    else:
+        print(NO)
+
     return
 
 

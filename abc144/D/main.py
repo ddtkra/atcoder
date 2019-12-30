@@ -1,13 +1,10 @@
 #!/usr/bin/env python3
 import sys
-import math
-sys.setrecursionlimit(10000)
+sys.setrecursionlimit(10000000)
 INF = 1<<32
 
 
 def solve(a: int, b: int, x: int):
-    
-
     return
 
 

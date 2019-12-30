@@ -1,14 +1,10 @@
 #!/usr/bin/env python3
 import sys
-sys.setrecursionlimit(10000)
+sys.setrecursionlimit(10000000)
 INF = 1<<32
 
 
 def solve(A: int, B: int):
-    if(1 <= A <= 9 and 1 <= B <= 9):
-        print(A*B)
-    else:
-        print(-1)
     return
 
 

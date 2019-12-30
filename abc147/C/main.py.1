@@ -1,0 +1,54 @@
+#!/usr/bin/env python3
+
+
+
+
+def main():
+    N = int(input())
+    A = []
+    X = []
+    for i in range(N):
+        a = int(input())
+        A.append(a)
+        x = []
+        for i in range(a):
+            x.append(list(map(int, input().split())))
+
+        X.append(x)
+
+    # print(A)
+    # print(X)
+    # print(X[0][0])
+
+
+    ans = 0
+    for i in range(1<<N):
+        
+        t = [-1] *(N+1)
+        for j in range(N):
+            if (i>>j) & 1:
+                t[j+1] = 1
+            else:
+                t[j+1] = 0
+            for j in range(N):
+                if t[j+1] == 1:
+                    for k in range(len(X[j])):
+                        # print(X[j][k])
+                        if t[X[j][k][0]] == X[j][k][1]:
+                            # t[X[j][k][0]] = X[j][k][1]
+                            continue
+                        else:
+                            break
+                else:
+                    continue
+                print('error')
+                break
+        else:
+            ans = max(ans, t[1:].count(1))
+            print(bin(i), t)
+
+    print(ans)
+
+
+if __name__ == '__main__':
+    main()

@@ -2,15 +2,9 @@
 import sys
 sys.setrecursionlimit(10000000)
 INF = 1<<32
-w =  ['SUN','MON','TUE','WED','THU','FRI','SAT']
+
 
 def solve(S: str):
-    we = w+w
-    n = w.index(S)
-    if n == 0:
-        print(7)
-    else:
-        print(we[n:].index('SUN'))
     return
 
 

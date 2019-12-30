@@ -5,26 +5,6 @@ INF = 1<<32
 
 
 def solve(A: int, B: int, X: int):
-
-    def f(K: int):
-        x = A*K+B*len(list(str(K)))
-        if x <= X:
-            return True
-        else:
-            return False
-        
-    def binary_search(ok: int, ng: int):
-        
-        while ng-ok > 1:
-            mid = (ok+ng)//2
-            if f(mid):
-                ok = mid
-            else:
-                ng = mid
-        return ok
-    print(binary_search(0,10**9+1))
-
-    
     return
 
 

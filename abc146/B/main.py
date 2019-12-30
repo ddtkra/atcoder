@@ -2,16 +2,10 @@
 import sys
 sys.setrecursionlimit(10000000)
 INF = 1<<32
-a = list('ABCDEFGHIJKLMNOPQRSTUVWXYZ')
 
 
 def solve(N: int, S: str):
-    al = a+a
-    ans = []
-    for i in range(len(S)):
-        ans += al[al.index(S[i])+N]
-
-    print(''.join(ans))
+    print(''.join([chr((ord(i)+N-ord('A'))%26 + ord('A')) for i in S]))
     return
 
 

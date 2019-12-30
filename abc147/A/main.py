@@ -5,15 +5,7 @@ INF = 1<<32
 
 
 def solve(A: "List[int]"):
-    if sum(A) >= 22:
-        print('bust')
-
-    else:
-        print('win')
-
-        
     return
-
 
 
 

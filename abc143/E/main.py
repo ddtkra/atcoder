@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 import sys
-sys.setrecursionlimit(10000)
+sys.setrecursionlimit(10000000)
+INF = 1<<32
 
 
 def solve(N: int, M: int, L: int, A: "List[int]", B: "List[int]", C: "List[int]", Q: int, s: "List[int]", t: "List[int]"):

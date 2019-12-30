@@ -1,9 +1,18 @@
 #!/usr/bin/env python3
 import sys
-sys.setrecursionlimit(10000)
+sys.setrecursionlimit(10000000)
+INF = 1<<32
 
 
 def solve(N: int, d: "List[int]"):
+    ans = 0
+    for i in range(N-1):
+        for j in range(i+1, N):
+            # print(i, j@)
+            ans += d[i]*d[j]
+
+    print(ans)
+
     return
 
 

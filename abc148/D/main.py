@@ -5,19 +5,6 @@ INF = 1<<32
 
 
 def solve(N: int, a: "List[int]"):
-    t = 1
-    c = 0
-    for i in range(N):
-        if a[i] != t:
-            c += 1
-        else:
-            t += 1
-
-    if t == 1:
-        print(-1)
-    else:
-        print(c)
-
     return
 
 

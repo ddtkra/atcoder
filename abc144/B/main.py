@@ -1,24 +1,19 @@
 #!/usr/bin/env python3
 import sys
-sys.setrecursionlimit(10000)
+sys.setrecursionlimit(10000000)
 INF = 1<<32
 
 YES = "Yes"  # type: str
 NO = "No"  # type: str
 
 def solve(N: int):
-    f = True
     for i in range(1,10):
-        if(N%i == 0 and N//i <= 9):
-            f = True
-            break
-        else:
-            f = False
+        for j in range(1,10):
+            if i*j == N:
+                print(YES)
+                exit()
 
-    if f:
-        print(YES)
-    else:
-        print(NO)
+    print(NO)
     return
 
 
