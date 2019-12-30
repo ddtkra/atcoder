@@ -1,11 +1,10 @@
 #!/usr/bin/env python3
 import sys
-sys.setrecursionlimit(10000)
+sys.setrecursionlimit(10000000)
 INF = 1<<32
 
 
 def solve(P: int, Q: int, R: int):
-    print(sum([P,Q,R])-max([P,Q,R]))
     return
 
 

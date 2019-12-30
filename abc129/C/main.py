@@ -6,34 +6,6 @@ INF = 1<<32
 MOD = 1000000007  # type: int
 
 def solve(N: int, M: int, a: "List[int]"):
-    dp = [-1] *(N+2)
-    ckc = [True] * (N+2)
-    for i in a:
-        ckc[i] = False
-
-    def f(n: int):
-        if(dp[n] != -1):
-            return dp[n]
-
-        if n <= 0:
-            dp[n] = 0
-        else:
-            if not ckc[n-1] and not ckc[n-2]:
-                dp[n] = 0
-            elif not ckc[n-1]:
-                dp[n] = f(n-2) % MOD
-            elif not ckc[n-2]:
-                dp[n] = f(n-1) % MOD
-            else:
-                dp[n] = (f(n-1) + f(n-2)) % MOD
-            
-        return dp[n]
-
-    dp[0] = 1
-    f(N)
-    print(dp[N])
-    # print(dp)
-
     return
 
 
