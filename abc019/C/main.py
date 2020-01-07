@@ -3,6 +3,13 @@ import sys
 
 
 def solve(N: int, a: "List[int]"):
+    def make_odd(x: int):
+        if x%2 != 0:
+            return x
+        
+        return make_odd(x//2)
+    
+    print(len(list(set([make_odd(i) for i in a]))))
     return
 
 
