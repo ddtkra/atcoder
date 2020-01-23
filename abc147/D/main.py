@@ -6,10 +6,28 @@ INF = 1<<32
 MOD = 1000000007  # type: int
 
 def solve(N: int, A: "List[int]"):
-    x = 1 << 60
-    print(x)
+    ans = [0] * 60
+    
+    
+    for i in range(60):
+        # x0 = len([j for j in range(N) if not (A[j]>>i)&1])
+        # x1 = len([j for j in range(N) if (A[j]>>i)&1])
+        x0 = 0
+        x1 = 0
+        for j in range(N):
+            if (A[j]>>i)&1:
+                x1 += 1
+            else:
+                x0 += 1
 
-    z
+        ans[i] = x0*x1
+
+    x = 0
+    for i in range(len(ans)):
+        # print(i, 2**i)
+        x += pow(2, i) * ans[i] % MOD
+
+    print(x%MOD)
 
     return
 
