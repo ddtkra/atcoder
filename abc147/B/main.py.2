@@ -3,14 +3,13 @@ import sys
 sys.setrecursionlimit(10000000)
 INF = 1<<32
 
-MOD = 1000000007  # type: int
 
-def solve(N: int, A: "List[int]"):
-    x = 1 << 60
-    print(x)
-
-    z
-
+def solve(S: str):
+    sl = list(S)
+    rs = sl[::-1]
+    
+    from math import ceil
+    print(ceil([sl[i] != rs[i] for i in range(len(S))].count(True)/2))
     return
 
 
@@ -21,9 +20,8 @@ def main():
             for word in line.split():
                 yield word
     tokens = iterate_tokens()
-    N = int(next(tokens))  # type: int
-    A = [int(next(tokens)) for _ in range(N)]  # type: "List[int]"
-    solve(N, A)
+    S = next(tokens)  # type: str
+    solve(S)
 
 if __name__ == '__main__':
     main()

@@ -5,11 +5,7 @@ INF = 1<<32
 
 
 def solve(S: str):
-    sl = list(S)
-    rs = sl[::-1]
-    
-    from math import ceil
-    print(ceil([sl[i] != rs[i] for i in range(len(S))].count(True)/2))
+    print([S[i] != S[::-1][i] for i in range(len(S))].count(True)//2)
     return
 
 
