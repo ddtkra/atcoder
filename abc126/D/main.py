@@ -6,8 +6,7 @@ INF = 1<<32
 
 def solve(N: int, u: "List[int]", v: "List[int]", w: "List[int]"):
     colors = [-1] *(N+1)
-    
-    """graph.input.linkedlist
+    """graph.input.linkedlist_with_weight
         input: u[]:start, v[]:end, w[]:weight
         output:g[][]
     """
@@ -15,14 +14,7 @@ def solve(N: int, u: "List[int]", v: "List[int]", w: "List[int]"):
     for i in range(N-1):
         g[u[i]].append([v[i], w[i]])
         g[v[i]].append([u[i], w[i]])
-
-    g = [[] for i in range(N+1)]
-    for i in range(N-1):
-        g[u[i]].append([v[i], w[i]])
-        g[v[i]].append([u[i], w[i]])
-
-
-
+    
     from collections import deque
     d = deque()
     colors[1] = 0
