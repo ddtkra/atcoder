@@ -5,6 +5,21 @@ INF = 1<<32
 
 
 def solve(N: int, s: "List[str]"):
+    l = [''.join(sorted(list(i))) for i in s]
+    from collections import Counter
+    c = Counter(l)
+
+    import math
+    def combination(n, r):
+        return math.factorial(n) // (math.factorial(n - r) * math.factorial(r))
+
+    ans = 0
+    for k, v in c.most_common():
+        if v >= 2:
+            ans += combination(v, 2)
+
+    print(ans)
+
     return
 
 

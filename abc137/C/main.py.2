@@ -4,8 +4,7 @@ sys.setrecursionlimit(10000000)
 INF = 1<<32
 
 
-def solve(K: int, X: int):
-    print(' '.join(map(str, [i for i in range(max(-1000000, X-K+1), min(1000000, X+K))])))
+def solve(N: int, s: "List[str]"):
     return
 
 
@@ -16,9 +15,9 @@ def main():
             for word in line.split():
                 yield word
     tokens = iterate_tokens()
-    K = int(next(tokens))  # type: int
-    X = int(next(tokens))  # type: int
-    solve(K, X)
+    N = int(next(tokens))  # type: int
+    s = [next(tokens) for _ in range(N)]  # type: "List[str]"
+    solve(N, s)
 
 if __name__ == '__main__':
     main()

@@ -5,6 +5,7 @@ INF = 1<<32
 
 
 def solve(A: int, B: int):
+    print(max(A+B, A-B, A*B))
     return
 
 
