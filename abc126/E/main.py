@@ -3,6 +3,9 @@ import sys
 sys.setrecursionlimit(10000000)
 INF = 1<<32
 
+# refered to
+# rank : http://at274.hatenablog.com/entry/2018/02/02/173000
+# size : abc120 kaisetsu
 class UnionFind:
     def __init__(self, n):
         # par = Parent Number or NoV
@@ -10,47 +13,45 @@ class UnionFind:
         # rank = Tree Height
         self.rank = [0] * (n+1)
     
-    # 自分が所属する集合の数を返す
+    # Returns the number of sets to which x belongs
     def size(self, x):
         return -1*self.par[self.find(x)]
     
     def size_list(self):
         return [x*(-1) for x in self.par[1:] if x < 0]
 
-    # 根なら番号を返す
+    # Returns number if root
     def find(self, x):
-        
         if(self.par[x] < 1):
             return x
         self.par[x] = self.find(self.par[x])
         return self.par[x]
 
-    # 親が同じか判定
+    # Are the parents of x and y the same?
     def same_check(self, x, y):
         return self.find(x) == self.find(y)
 
     def union(self, x, y):
-        # 根を探す
+        # find root 
         x = self.find(x)
         y = self.find(y)
 
-        # もう繋がれている
+        # Already x connect to y
         if(x == y):
             return False
 
-        # つなぎ替える
+        # Reconnect
         if(self.size(x) < self.size(y)):
             x,y = y,x
         
-        # xのサイズを更新
+        # update x size
         self.par[x] += self.par[y]
-        # yのサイズ(おやばんごう)をxに
+        # set parent number of y to x
         self.par[y] = x
 
         return True 
-
+    
     def root_nodes(self):
-        # print([i for i in self.par[1:]])
         return len([i for i in self.par[1:] if i <= -1])
 
 
