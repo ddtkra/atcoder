@@ -5,7 +5,6 @@ INF = 1<<32
 
 
 def solve(N: int, a: "List[int]", b: "List[int]", c: "List[int]", Q: int, K: int, x: "List[int]", y: "List[int]"):
-
     """graph.input.linkedlist_with_weight
         input: u[]:start, v[]:end, w[]:weight
         output:g[][]
@@ -56,6 +55,8 @@ def solve(N: int, a: "List[int]", b: "List[int]", c: "List[int]", Q: int, K: int
                     colors[v] = 'G'
         return d
     
+    d = dikstra(N, g, K)
+
     d = dikstra(N, g, K)
 
     for i in range(Q):
