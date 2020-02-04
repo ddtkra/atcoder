@@ -3,10 +3,9 @@ import sys
 sys.setrecursionlimit(10000000)
 INF = 1<<32
 
+MOD = 1000000007  # type: int
 
-def solve(N: int, D: int):
-    from math import ceil
-    print(ceil(N/(2*D+1)))
+def solve(n: int, k: int):
     return
 
 
@@ -17,9 +16,9 @@ def main():
             for word in line.split():
                 yield word
     tokens = iterate_tokens()
-    N = int(next(tokens))  # type: int
-    D = int(next(tokens))  # type: int
-    solve(N, D)
+    n = int(next(tokens))  # type: int
+    k = int(next(tokens))  # type: int
+    solve(n, k)
 
 if __name__ == '__main__':
     main()
