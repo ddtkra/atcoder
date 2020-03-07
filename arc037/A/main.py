@@ -3,6 +3,7 @@ import sys
 
 
 def solve(N: int, m: "List[int]"):
+    print(sum([80-m[i] for i in range(N) if m[i] < 80]))
     return
 
 

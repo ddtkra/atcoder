@@ -4,11 +4,12 @@
 
 
 def main():
-    N = int(input())
-    s = input()
+    n = int(input())
+    r = input()
+    ans = (4*r.count('A')+3*r.count('B')+2*r.count('C')+1*r.count('D'))/n
+    print(ans)
 
-    print((s.count('A')*4+s.count('B')*3+s.count('C')*2+s.count('D'))/N)
-    
+
 
 if __name__ == '__main__':
     main()
