@@ -7,6 +7,13 @@ YES = "Yes"  # type: str
 NO = "No"  # type: str
 
 def solve(N: int, a: "List[int]", b: "List[int]"):
+    if sum(a) > sum(b):
+        print(NO)
+        exit()
+    
+    
+    
+    
     return
 
 

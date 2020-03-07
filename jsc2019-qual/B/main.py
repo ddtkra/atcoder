@@ -5,6 +5,24 @@ MOD = 1000000007  # type: int
 
 
 def solve(N: int, K: int, A: "List[int]"):
+    al = [0] * N
+    bl = [0] * N
+    for i in range(N):
+        for j in range(N):
+            if i == j:
+                continue
+            elif A[i] > A[j]:
+                al[i] += 1
+                if i < j:
+                    bl[i] += 1
+
+    ans = 0
+    for i in range(N):
+        ans += ((K*(K-1)//2)*al[i] + K*bl[i]) % MOD
+
+    
+    print(ans%MOD)
+    
     return
 
 

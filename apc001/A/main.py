@@ -5,7 +5,7 @@ INF = 1<<32
 
 
 def solve(X: int, Y: int):
-    print(-1) if X%Y == 0 else print(X)
+    
         
     return
 

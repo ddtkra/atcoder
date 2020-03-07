@@ -5,6 +5,13 @@ INF = 1<<32
 
 
 def solve(N: int, A: int, B: int, P: "List[int]"):
+    P.sort()
+    from bisect import bisect_left, bisect_right
+    x = bisect_right(P, A)
+    y = bisect_right(P, B)
+
+    print(min(x, y-x, N-y))
+
     return
 
 

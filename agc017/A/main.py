@@ -6,29 +6,16 @@ INF = 1<<32
 MOD = 2  # type: int
 
 def solve(N: int, P: int, A: "List[int]"):
-    
-    if all([(A[i]%2==0) for i in range(N)]):
+
+    if all([i%2 == 0 for i in A]):
         if P == 0:
             print(2**N)
         else:
             print(0)
-        exit()
 
-    
-            
-
-
-    ans = 0
-    for i in range(1<<N):
-        s = 0
-        for j in range(N):
-            if (i>>j) & 1:
-                s += A[j]
-
-        if s%2 == P:
-            ans += 1
-
-    print(ans)
+    else:
+        od = len([i%2 == 1 for i in A])
+        print(2**(N-1))
 
     return
 

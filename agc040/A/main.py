@@ -5,18 +5,9 @@ INF = 1<<32
 
 
 def solve(S: str):
-    N = len(S)
-    l = [0] * (N+1)
+    N = len(S)+1
+    l = [0] * (N)
 
-    for i in range(N):
-        if S[i] == '<':
-            l[i+1] = l[i]+1
-
-    for i in range(N)[::-1]:
-        if S[i] == '>':
-            l[i] = max(l[i], l[i+1]+1)
-
-    print(sum(l))
 
     return
 

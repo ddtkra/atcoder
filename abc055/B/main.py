@@ -1,10 +1,17 @@
 #!/usr/bin/env python3
 import sys
+sys.setrecursionlimit(10000000)
 
 MOD = 1000000007  # type: int
 
 
 def solve(N: int):
+    ans = 1
+    for i in range(1, N+1):
+        ans = (ans * i) % MOD
+
+    print(ans)
+
     return
 
 

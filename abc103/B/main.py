@@ -5,6 +5,16 @@ YES = "Yes"  # type: str
 NO = "No"  # type: str
 
 def solve(S: str, T: str):
+    f = False
+    n = len(S)
+    for i in range(n):
+        if S[n-i:]+S[:n-i] == T:
+            f = True
+
+    if f:
+        print(YES)
+    else:
+        print(NO)
     return
 
 

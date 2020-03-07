@@ -1,8 +1,25 @@
 #!/usr/bin/env python3
 import sys
-
+INF = 1<<48
 
 def solve(N: int, S: str):
+    b = [1 if S[i] == '#' else 0 for i in range(N)]
+    w = [1 if S[i] == '.' else 0 for i in range(N)]
+
+    rb = [0] * (N+1)
+    for i in range(N):
+        rb[i+1] = rb[i] + b[i]
+
+    rw = [0] * (N+1)
+    for i in range(N-1, -1, -1):
+        rw[i] = rw[i+1] + w[i]
+
+    ans = INF
+    for i in range(N+1):
+        ans = min(ans, rb[i]+rw[i])
+    
+    print(ans)
+
     return
 
 

@@ -5,6 +5,10 @@ INF = 1<<32
 
 
 def solve(N: int, K: int, S: int):
+    ans = [S]*K
+    ans.extend([10**9-1]*(N-K))
+
+    print(' '.join(map(str, ans)))
     return
 
 
