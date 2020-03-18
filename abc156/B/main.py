@@ -5,13 +5,12 @@ INF = 1<<32
 
 
 def solve(N: int, K: int):
-    def f(x: int, k: int):
-        if x < k:
-            return 1
-        
-        return 1+f(x//k, k)
+    ans = 0
+    while N >= K:
+        N //= K
+        ans += 1
 
-    print(f(N, K))
+    print(ans+1)
     return
 
 

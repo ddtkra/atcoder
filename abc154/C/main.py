@@ -7,6 +7,10 @@ YES = "YES"  # type: str
 NO = "NO"  # type: str
 
 def solve(N: int, A: "List[int]"):
+    if len(list(set(A))) == N:
+        print(YES)
+    else:
+        print(NO)
     return
 
 

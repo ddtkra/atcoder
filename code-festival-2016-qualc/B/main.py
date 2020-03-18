@@ -3,6 +3,28 @@ import sys
 
 
 def solve(K: int, T: int, a: "List[int]"):
+    from heapq import heapify, heappop, heappush
+
+    a = list(map(lambda x:x*(-1), a))
+    heapify(a)
+    while True:
+        if len(a) <= 1:
+            break
+
+        x = -1*heappop(a)
+        y = -1*heappop(a)
+        x -= 1
+        y -= 1
+        if x > 0:
+            heappush(a, -x)
+        if y > 0:
+            heappush(a, -y)
+
+    if len(a) == 1:
+        print(-1*a[0]-1)
+    else:
+        print(0)
+
     return
 
 

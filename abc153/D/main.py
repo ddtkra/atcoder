@@ -5,26 +5,17 @@ INF = 1<<32
 
 
 def solve(H: int):
-    # x = 0
-    # while H > 0:
-    #     H -= 2 ** x
-    #     x += 1
+    from math import ceil
+    from functools import lru_cache
 
-    # ans = 0
-    # while x > 0:
-    #     ans = 2*ans + 1
-    #     x -= 1
-
-    # print(ans)
-    from math import ceil, floor
-    def rec(n: int):
-        if n == 1:
+    @lru_cache(None)
+    def f(n: int):
+        if 0 < n <= 1:
             return 1
-        else:
-            return 2*rec(n//2)+1
+        
+        return 1 + f((n//2)) + f((n//2))
 
-    print(rec(H))
-
+    print(f(H))
     return
 
 

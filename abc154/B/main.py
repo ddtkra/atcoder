@@ -5,6 +5,7 @@ INF = 1<<32
 
 
 def solve(S: str):
+    print(''.join(['x']*len(S)))
     return
 
 

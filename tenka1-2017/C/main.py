@@ -3,12 +3,14 @@ import sys
 
 
 def solve(N: int):
-    for h in range(1,3501):
-        for n in range(1,3501):
-            w = h*n*N/(h*n-n*N-h*N)
-            if(w >= 0 and abs(int(w)-w) > 0):
-                print(h,n,w)
-                exit()
+    for i in range(1, 3501):
+        for j in range(i, 3501):
+            z = 4*i*j - N*(j+i)
+            if z > 0:
+                h, r = divmod((N*i*j), z)
+                if r == 0:
+                    print(h, i, j)
+                    exit()
             
 
     return
@@ -26,3 +28,15 @@ def main():
 
 if __name__ == '__main__':
     main()
+
+
+# #!/usr/bin/env python3
+# n = int(input())
+# for i in range(1, 3501):
+#   for j in range(1, 3501):
+#     seed = 4 * i * j - n * (i + j) 
+#     if seed > 0:
+#       k, mod = divmod(n * i * j, seed) 
+#       if mod == 0:
+#         print(i, j, k)
+#         exit()

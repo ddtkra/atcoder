@@ -5,6 +5,10 @@ INF = 1<<32
 
 
 def solve(S: str, T: str, A: int, B: int, U: str):
+    if U == S:
+        print(A-1, B)
+    else:
+        print(A, B-1)
     return
 
 

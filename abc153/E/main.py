@@ -5,18 +5,6 @@ INF = 1<<32
 
 
 def solve(H: int, N: int, A: "List[int]", B: "List[int]"):
-    dp = [[INF] * (H+1) for i in range(N+1)]
-
-    for i in range(1,N+1):
-        for j in range(1, H+1):
-            if j-A[i-1] > 0:
-                dp[i][j] = min(dp[i-1][j], dp[i][j-A[i-1]]+B[i-1])
-            else:
-                dp[i][j] = min(dp[i-1][j], B[i-1])
-
-    # for i in dp:
-    #     print(i)
-    print(dp[N][H])
     return
 
 

@@ -5,7 +5,6 @@ INF = 1<<32
 
 
 def solve(N: int, D: int, A: int, X: "List[int]", H: "List[int]"):
-    list
     return
 
 

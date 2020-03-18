@@ -3,6 +3,21 @@ import sys
 
 
 def solve(N: int, A: "List[int]", B: "List[int]"):
+    from bisect import bisect_left, bisect_right
+    
+    A.sort()
+    B.sort()
+    ans = 0
+    x = A[N//2]
+    y = B[N//2]
+    for i in range(N):
+        ans += y-x
+        if A[i] < x:
+            ans += 2*(x-A[i])
+        if B[i] > y:
+            ans += 2*(B[i]-y)
+
+    print(ans)
     return
 
 
